@@ -8,6 +8,7 @@ namespace Robots_inc
 {
 	public abstract class RobotSpy
 	{
+		private int neww;
 		private string model;
 		private DateTime creationDate;
 		private double batteryStatus; 
