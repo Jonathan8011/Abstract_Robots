@@ -8,7 +8,6 @@ namespace Robots_inc
 {
 	public abstract class RobotSpy
 	{
-		private int new123;
 		private string model;
 		private DateTime creationDate;
 		private double batteryStatus; 
@@ -20,9 +19,11 @@ namespace Robots_inc
 			this.creationDate = creationDate;
 			this.batteryStatus = batteryStatus;
 		}
-		public string Model() { return this.model; }
-		public DateTime CreationDate() { return creationDate; }
-		public double BatteryStatus { get { return batteryStatus; } set { batteryStatus = value; } }
+        public string GetModel() { return this.model; }
+        public DateTime GetcreationDate() { return this.creationDate; }
+
+        public double GetBattery() { return this.batteryStatus; }
+        public void SetBattery(double value) { this.batteryStatus = value; }
 		
 
 		public abstract void MoveForward();
@@ -30,7 +31,11 @@ namespace Robots_inc
 		public abstract void TurnLeft();
 		public abstract void TurnRight();
 
-		public void TakePicture() { } //4. הוסיפו התייחסות למצב סוללה
-		public void ChargeBattery() { } //5. עדכנו את מצב הסוללה ל-100
+		public void TakePicture()
+		{ 
+			Console.WriteLine("Takeing Picture (*^▽^*)");
+			SetBattery(this.batteryStatus - 5);
+		} 
+		public void ChargeBattery() { SetBattery(100); } //5. עדכנו את מצב הסוללה ל-100
 	}
 }
