@@ -13,17 +13,22 @@ namespace Robots_inc
 		private double batteryStatus; 
 
 		//1. פעולה בונה
-		public RobotSpy(string model , DateTime creationDate , double batteryStatus)
+		public RobotSpy(string model, DateTime creationDate , double batteryStatus)
 		{
 			this.model = model;
 			this.creationDate = creationDate;
 			this.batteryStatus = batteryStatus;
 		}
-        public string GetModel() { return this.model; }
-        public DateTime GetcreationDate() { return this.creationDate; }
+
+        protected RobotSpy()
+        {
+        }
 
         public double GetBattery() { return this.batteryStatus; }
         public void SetBattery(double value) { this.batteryStatus = value; }
+        public string GetModel() { return this.model; }
+        public DateTime GetCreationDate() { return this.creationDate; }
+        
 		
 
 		public abstract void MoveForward();

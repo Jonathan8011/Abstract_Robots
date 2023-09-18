@@ -15,19 +15,19 @@ namespace Robots_inc
         private string password;
 
         //פעולה בונה
-        public Worker(string name, string id, DateTime bDate, string pass)
+        public Worker(string name, string id, DateTime bDate, string passW)
         {
             
             this.fullName = name;
             this.idNumber = id;
             this.birthDate = bDate;
-            this.password = pass;
+            this.password = passW;
         }
 
         //פעולות get , set
         public string FullName { get { return fullName; } set { fullName = value; } }
-        public string IdNumber { get { return idNumber; } set { idNumber = value; } }
-        public DateTime BirthDate { get { return birthDate; } set { birthDate = value; } }
+        public string IdNumber { get { return idNumber; } }
+        public DateTime BirthDate { get { return birthDate; }  }
         public string Password { get { return password; } set { password = value; } }
 
         //פעולה abstract לחישוב שכר

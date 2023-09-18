@@ -27,6 +27,9 @@ namespace Robots_inc
         public MainWindow()
         {
             InitializeComponent();
+            CreateWorkers();
+            CreateRobots();
+            CreateMissions();
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -34,20 +37,42 @@ namespace Robots_inc
             MessageBox.Show("Have a robotic day (-:","Good bye",MessageBoxButton.OK);
             this.Close();
         }
+        private void CreateWorkers()
+        { 
+            workers = new List<Worker>();
 
+            workers.Add(new GeneralManager(name:"Jonathahn gamzu" ,id:"21",bDate:new DateTime(2006, 10, 12 ), passW:"369369" , monthlySalary: 100000000 , workingRobots: 100));
+            
+            workers.Add(new OperationManager(name: "Kirillll", id: "331487484", bDate: new DateTime(2006, 08, 09), pass: "1234", SalaryPerH: 150, hours: 45, NumOfMissionSucceed: 15));
+            workers.Add(new OperationManager(name: "Ron", id: "11", bDate: new DateTime(2006, 05, 02), pass: "1", SalaryPerH: 150, hours: 50, NumOfMissionSucceed: 10));
 
-        //משימה 1
-        // : כתבו פעולה המחזירה אוסף של 6 עובדים 
-        //מנכ"ל אחד, 2 מנהלי תפעול ו-3 עובדי תפעול
-        //כתבו זימון לפעולה שכתבתם בפעולה הבונה של החלון
+            workers.Add(new OperationalWorker(name: "andro", id: "2", bDate: new DateTime(2005, 10, 5), pass: "2", SalaryPerH: 75, hours: 50));
+            workers.Add(new OperationalWorker(name: "avi", id: "764654443", bDate: new DateTime(2004, 12, 6), pass: "4321", SalaryPerH: 75, hours: 55));
+            workers.Add(new OperationalWorker(name: "lior", id: "4364368789", bDate: new DateTime(2005, 04, 9), pass: "8765", SalaryPerH: 75, hours: 35));
+        }
+        private void CreateRobots()
+        {
+            activeRobots = new List<RobotSpy>();
 
-        //משימה 2
-        //כתבו פעולה המחזירה אוסף של 8 רובוטים
-        //כתבו זימון לפעולה שכתבתם בפעולה הבונה של החלון
+            activeRobots.Add(new RobotFly(model: "AxI54" , creationDate: new DateTime(2023 , 09 , 18) , batteryStatus: 100));
+            activeRobots.Add(new RobotFly(model: "AxI24" , creationDate: new DateTime(2023 , 01 , 24) , batteryStatus: 100));
+            activeRobots.Add(new RobotFly(model: "AxI34" , creationDate: new DateTime(2020 , 02 , 09) , batteryStatus: 100));
 
-        //משימה 3
-        //כתבו פעולה המחזירה אוסף של 5 משימות
-        //כתבו זימון לפעולה שכתבתם בפעולה הבונה של החלון       
+            activeRobots.Add(new RobotQuad(model: "xZ302", creationDate: new DateTime(2005, 12, 09), batteryStatus: 100));
+            activeRobots.Add(new RobotQuad(model: "xZ305", creationDate: new DateTime(2000, 09, 30), batteryStatus: 100));
+            activeRobots.Add(new RobotQuad(model: "xZ3", creationDate: new DateTime(1995,05, 31), batteryStatus: 100));
+
+            activeRobots.Add(new RobotWheels(model: "X5", creationDate: new DateTime(2000, 11, 12), batteryStatus: 100));      
+            activeRobots.Add(new RobotWheels(model: "X10", creationDate: new DateTime(2023, 09, 15), batteryStatus: 100));      
+        }
+
+        private void CreateMissions()
+        {
+            activeMissions = new List<Mission>();
+
+            activeMissions.Add(new Mission(dueDate: new DateTime(2023, 12, 25) , desc: "mission1"));
+            activeMissions.Add(new Mission(dueDate: new DateTime(2024, 05, 10) , desc: "mission2"));
+        }
 
         //משימה 4
         //login כתבו פעולה המגיבה לללחיצה על כפתור 
@@ -55,11 +80,16 @@ namespace Robots_inc
         //WndMain אם כן, יש ליצור מופע של חלון 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            //...אם מספר הזיהוי והסיסמה תואמים לעובד ברשימה, אז
-            Worker worker = workers[?];
-            WndMain main = new WndMain(worker, activeMissions, activeRobots, workers);
-            main.ShowDialog();
 
+            foreach (var w in workers)
+            {
+                if (w.IdNumber.Equals(tbxID.Text) && (w.Password.Equals(tbxPassword.Password))){ 
+                    Worker worker = w;
+                    WndMain main = new WndMain(worker, activeMissions, activeRobots, workers);
+                    main.ShowDialog();
+                    return;
+                }
+            }
         }
     }
 }

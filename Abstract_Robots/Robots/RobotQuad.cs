@@ -9,20 +9,42 @@ namespace Robots_inc
     public class RobotQuad : RobotSpy
     {
         //1. עדכנו את הפעולה הבונה כך שתתאים לפעולת במחלקת העל
-        public RobotQuad() : base("Roboquad")
-        { }
+        public RobotQuad(string model, DateTime creationDate, double batteryStatus) : base(model, creationDate, batteryStatus)
+        {
+
+        }
 
         public override void MoveForward()
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 1; i < 5; i++)
                 this.MoveLeg(i, 1);
+            Console.WriteLine("RobotQuad Move Forward ------> ");
+        }
+        public override void MoveBackward()
+        {
+            for (int i = 1; i < 5; i++)
+                this.MoveLeg(i, 1);
+            Console.WriteLine("RobotQuad Move Backwaed  <------ ");
+        }
+        public override void TurnLeft()
+        {
+            for (int i = 1; i < 5; i++)
+                this.MoveLeg(i, 1);
+            Console.WriteLine("RobotQuad TurnLeft  <- ");
+        }
+        public override void TurnRight()
+        {
+            for (int i = 1; i < 5; i++)
+                this.MoveLeg(i, 1);
+            Console.WriteLine("RobotQuad TurnLeft  -> ");
         }
 
-        //2. השלימו את התנועות החסרות מתוך המצגת או על הבנתכם
+
 
         private void MoveLeg(int legId, int dir) 
         {
-            //3. הוסיפו התייחסות לסוללה
+            this.SetBattery(-5);
+            
         }
     }
 
