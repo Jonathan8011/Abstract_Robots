@@ -28,10 +28,16 @@ namespace Robots_inc
         public void SetBattery(double value) { this.batteryStatus = value; }
         public string GetModel() { return this.model; }
         public DateTime GetCreationDate() { return this.creationDate; }
-        
-		
 
-		public abstract void MoveForward();
+        public double BatteryStatus { get { return batteryStatus; } set { batteryStatus = value; } }
+        public DateTime CreationDate { get { return creationDate; } set { creationDate = value; } }
+        public string Model { get { return model; } set { model = value; } }
+
+
+
+
+
+        public abstract void MoveForward();
 		public abstract void MoveBackward();
 		public abstract void TurnLeft();
 		public abstract void TurnRight();

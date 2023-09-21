@@ -41,7 +41,7 @@ namespace Robots_inc
         { 
             workers = new List<Worker>();
 
-            workers.Add(new GeneralManager(name:"Jonathahn gamzu" ,id:"21",bDate:new DateTime(2006, 10, 12 ), passW:"369369" , monthlySalary: 100000000 , workingRobots: 100));
+            workers.Add(new GeneralManager(name:"Jonathahn gamzu" ,id:"21",bDate:new DateTime(2006, 09, 21 ), passW:"123" , monthlySalary: 100000000 , workingRobots: 100));
             
             workers.Add(new OperationManager(name: "Kirillll", id: "331487484", bDate: new DateTime(2006, 08, 09), pass: "1234", SalaryPerH: 150, hours: 45, NumOfMissionSucceed: 15));
             workers.Add(new OperationManager(name: "Ron", id: "11", bDate: new DateTime(2006, 05, 02), pass: "1", SalaryPerH: 150, hours: 50, NumOfMissionSucceed: 10));
